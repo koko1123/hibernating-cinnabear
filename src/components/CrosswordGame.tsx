@@ -174,7 +174,7 @@ export default function CrosswordGame({
         gridTextColor="#333333"
         textColor="#ffffff"
         focusColor="#A64D79"
-        selectedBackgroundColor="#6A1E55"
+        selectedBackgroundColor="#C76B94"
         connectedBackgroundColor="#3B1C32"
       />
     </div>
