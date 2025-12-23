@@ -110,7 +110,7 @@ export default function Home() {
   if (loading) {
     return (
       <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-[#3B1C32]">
-        <div className="text-pink-200">Loading...</div>
+        <div className="loader" />
       </main>
     );
   }
