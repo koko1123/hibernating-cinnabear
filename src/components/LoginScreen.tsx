@@ -1,22 +1,24 @@
 'use client';
 
+import Image from 'next/image';
 import { initiateGoogleLogin } from '@/lib/auth';
 
 export default function LoginScreen() {
   return (
-    <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-white">
-      <div className="w-full max-w-sm flex flex-col items-center gap-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-amber-800 mb-2">
-            Cinnabear Crossword
-          </h1>
-          <p className="text-gray-600">Sign in to start solving puzzles</p>
-        </div>
+    <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-[#3B1C32]">
+      <div className="w-full max-w-sm flex flex-col items-center gap-12">
+        <Image
+          src="/icon-512.png"
+          alt="Cinnabear"
+          width={200}
+          height={200}
+          priority
+        />
 
         <button
           onClick={initiateGoogleLogin}
-          className="flex items-center gap-3 px-6 py-3 bg-white border-2 border-gray-200
-                     rounded-lg shadow-sm hover:shadow-md hover:border-gray-300
+          className="flex items-center gap-3 px-8 py-4 bg-[#3B1C32] border-2 border-[#A64D79]
+                     rounded-lg shadow-sm hover:bg-[#6A1E55] hover:border-[#A64D79]
                      transition-all duration-150 touch-manipulation"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -37,7 +39,7 @@ export default function LoginScreen() {
               d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
             />
           </svg>
-          <span className="font-medium text-gray-700">Sign in with Google</span>
+          <span className="font-medium text-white">Sign in with Google</span>
         </button>
       </div>
     </main>

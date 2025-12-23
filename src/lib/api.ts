@@ -44,8 +44,13 @@ class ApiClient {
     return headers;
   }
 
+  private async fetchWithTimeout(url: string, options: RequestInit, timeout = 10000): Promise<Response> {
+    const response = await fetch(url, options);
+    return response;
+  }
+
   async getNextPuzzle(): Promise<CAPICrossword & { progress?: Record<string, string> }> {
-    const res = await fetch(`${API_URL}/puzzles/next`, {
+    const res = await this.fetchWithTimeout(`${API_URL}/puzzles/next`, {
       headers: this.headers,
     });
     if (!res.ok) {
@@ -61,7 +66,7 @@ class ApiClient {
   }
 
   async getPuzzle(id: string): Promise<CAPICrossword & { progress?: Record<string, string> }> {
-    const res = await fetch(`${API_URL}/puzzles/${id}`, {
+    const res = await this.fetchWithTimeout(`${API_URL}/puzzles/${id}`, {
       headers: this.headers,
     });
     if (!res.ok) {
@@ -77,7 +82,7 @@ class ApiClient {
   }
 
   async getProgress(): Promise<ProgressHistoryItem[]> {
-    const res = await fetch(`${API_URL}/progress`, {
+    const res = await this.fetchWithTimeout(`${API_URL}/progress`, {
       headers: this.headers,
     });
     if (!res.ok) {
@@ -87,7 +92,7 @@ class ApiClient {
   }
 
   async updateProgress(puzzleId: string, cells: Record<string, string>): Promise<void> {
-    const res = await fetch(`${API_URL}/progress/${puzzleId}`, {
+    const res = await this.fetchWithTimeout(`${API_URL}/progress/${puzzleId}`, {
       method: 'PUT',
       headers: this.headers,
       body: JSON.stringify({ cells }),
@@ -98,7 +103,7 @@ class ApiClient {
   }
 
   async completePuzzle(puzzleId: string): Promise<void> {
-    const res = await fetch(`${API_URL}/progress/${puzzleId}/complete`, {
+    const res = await this.fetchWithTimeout(`${API_URL}/progress/${puzzleId}/complete`, {
       method: 'POST',
       headers: this.headers,
     });

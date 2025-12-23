@@ -169,13 +169,13 @@ export default function CrosswordGame({
       <Crossword
         data={puzzle as unknown as CrosswordProps['data']}
         progress={progressArray}
-        gridBackgroundColor="#000000"
+        gridBackgroundColor="#1A1A1D"
         gridForegroundColor="#fce7f3"
         gridTextColor="#333333"
-        textColor="#333333"
-        focusColor="#ec4899"
-        selectedBackgroundColor="#f472b6"
-        connectedBackgroundColor="#fbcfe8"
+        textColor="#ffffff"
+        focusColor="#A64D79"
+        selectedBackgroundColor="#6A1E55"
+        connectedBackgroundColor="#3B1C32"
       />
     </div>
   );

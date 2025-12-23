@@ -14,6 +14,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1A1A1D;
 }
 
 body {
@@ -63,6 +64,30 @@ button {
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* Dark theme for Guardian crossword clue bar (above/below grid) */
+#crossword-wrapper div[aria-hidden="true"] {
+  background-color: #1A1A1D !important;
+  background: #1A1A1D !important;
+  color: #ffffff !important;
+}
+
+#crossword-wrapper div[aria-hidden="true"] span {
+  color: #ffffff !important;
+}
+
+/* Additional specificity for CSS-in-JS overrides */
+#crossword-wrapper [class^="css-"][aria-hidden="true"],
+#crossword-wrapper [class*=" css-"][aria-hidden="true"] {
+  background-color: #1A1A1D !important;
+  background: #1A1A1D !important;
+  color: #ffffff !important;
+}
+
+#crossword-wrapper [class^="css-"][aria-hidden="true"] span,
+#crossword-wrapper [class*=" css-"][aria-hidden="true"] span {
+  color: #ffffff !important;
 }
 
 @theme inline {

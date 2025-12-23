@@ -109,20 +109,20 @@ export default function Home() {
 
   if (loading) {
     return (
-      <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-white">
-        <div className="text-gray-500">Loading...</div>
+      <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-[#3B1C32]">
+        <div className="text-pink-200">Loading...</div>
       </main>
     );
   }
 
   if (error) {
     return (
-      <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-white">
+      <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-[#3B1C32]">
         <div className="text-center">
-          <p className="text-red-600 mb-4">{error}</p>
+          <p className="text-red-300 mb-4">{error}</p>
           <button
             onClick={() => loadPuzzle()}
-            className="px-6 py-3 bg-amber-700 text-white font-medium rounded-lg"
+            className="px-6 py-3 bg-[#6A1E55] text-white font-medium rounded-lg hover:bg-[#A64D79]"
           >
             Try Again
           </button>
@@ -133,14 +133,14 @@ export default function Home() {
 
   if (!currentPuzzle) {
     return (
-      <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-white">
-        <div className="text-gray-500">No puzzle available</div>
+      <main className="min-h-dvh flex flex-col items-center justify-center p-4 safe-area-top safe-area-bottom border-8 border-[#3B1C32]">
+        <div className="text-pink-200">No puzzle available</div>
       </main>
     );
   }
 
   return (
-    <main className="min-h-dvh flex flex-col items-center p-2 safe-area-top safe-area-bottom border-8 border-white relative">
+    <main className="min-h-dvh flex flex-col items-center p-2 safe-area-top safe-area-bottom border-8 border-[#3B1C32] relative">
       <Confetti
         ref={confettiRef}
         className="absolute inset-0 z-50 pointer-events-none"
@@ -148,7 +148,7 @@ export default function Home() {
       />
       <div className="w-full max-w-lg flex flex-col items-center">
         <header className="text-center py-4">
-          <h1 className="text-2xl font-bold text-amber-800">Cinnabear Crossword</h1>
+          <h1 className="text-2xl font-bold text-pink-200">Cinnabear Crossword</h1>
         </header>
 
         <PuzzleSelector

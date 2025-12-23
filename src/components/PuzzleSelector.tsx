@@ -19,22 +19,22 @@ export default function PuzzleSelector({
   return (
     <>
       <div className="flex flex-col items-center gap-2 mb-4">
-        <h2 className="text-lg font-medium text-gray-700">
+        <h2 className="text-lg font-medium text-pink-200">
           {currentPuzzleName || 'Crossword'}
         </h2>
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           <button
             onClick={onNewPuzzle}
-            className="px-6 py-3 bg-amber-700 text-white font-medium rounded-lg
-                       shadow-md hover:bg-amber-800 active:bg-amber-900
+            className="px-8 py-4 bg-[#6A1E55] text-white font-medium rounded-lg
+                       border-2 border-[#A64D79] shadow-md hover:bg-[#A64D79]
                        transition-colors duration-150 touch-manipulation"
           >
             New Puzzle
           </button>
           <button
             onClick={() => setShowHistory(true)}
-            className="px-6 py-3 bg-gray-200 text-gray-700 font-medium rounded-lg
-                       shadow-md hover:bg-gray-300 active:bg-gray-400
+            className="px-8 py-4 bg-[#3B1C32] text-white font-medium rounded-lg
+                       border-2 border-[#6A1E55] shadow-md hover:bg-[#6A1E55]
                        transition-colors duration-150 touch-manipulation"
           >
             History
