@@ -6,7 +6,8 @@ describe('PuzzleSelector', () => {
   it('renders the current puzzle name', () => {
     render(
       <PuzzleSelector
-        currentPuzzleId="puzzle-1"
+        currentPuzzleName="Quick Crossword 1"
+        onNewPuzzle={() => {}}
         onSelectPuzzle={() => {}}
       />
     );
@@ -14,10 +15,23 @@ describe('PuzzleSelector', () => {
     expect(screen.getByText('Quick Crossword 1')).toBeInTheDocument();
   });
 
+  it('renders fallback when no puzzle name provided', () => {
+    render(
+      <PuzzleSelector
+        currentPuzzleName=""
+        onNewPuzzle={() => {}}
+        onSelectPuzzle={() => {}}
+      />
+    );
+
+    expect(screen.getByText('Crossword')).toBeInTheDocument();
+  });
+
   it('renders the New Puzzle button', () => {
     render(
       <PuzzleSelector
-        currentPuzzleId="puzzle-1"
+        currentPuzzleName="Quick Crossword 1"
+        onNewPuzzle={() => {}}
         onSelectPuzzle={() => {}}
       />
     );
@@ -25,32 +39,30 @@ describe('PuzzleSelector', () => {
     expect(screen.getByRole('button', { name: /new puzzle/i })).toBeInTheDocument();
   });
 
-  it('calls onSelectPuzzle when New Puzzle button is clicked', () => {
-    const onSelectPuzzle = vi.fn();
+  it('renders the History button', () => {
     render(
       <PuzzleSelector
-        currentPuzzleId="puzzle-1"
-        onSelectPuzzle={onSelectPuzzle}
+        currentPuzzleName="Quick Crossword 1"
+        onNewPuzzle={() => {}}
+        onSelectPuzzle={() => {}}
       />
     );
 
-    fireEvent.click(screen.getByRole('button', { name: /new puzzle/i }));
-
-    expect(onSelectPuzzle).toHaveBeenCalled();
+    expect(screen.getByRole('button', { name: /history/i })).toBeInTheDocument();
   });
 
-  it('selects a different puzzle than the current one', () => {
-    const onSelectPuzzle = vi.fn();
+  it('calls onNewPuzzle when New Puzzle button is clicked', () => {
+    const onNewPuzzle = vi.fn();
     render(
       <PuzzleSelector
-        currentPuzzleId="puzzle-1"
-        onSelectPuzzle={onSelectPuzzle}
+        currentPuzzleName="Quick Crossword 1"
+        onNewPuzzle={onNewPuzzle}
+        onSelectPuzzle={() => {}}
       />
     );
 
     fireEvent.click(screen.getByRole('button', { name: /new puzzle/i }));
 
-    const selectedPuzzleId = onSelectPuzzle.mock.calls[0][0];
-    expect(selectedPuzzleId).not.toBe('puzzle-1');
+    expect(onNewPuzzle).toHaveBeenCalled();
   });
 });
